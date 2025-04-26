@@ -2,13 +2,22 @@ package HorseRaceSimulation;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 public class MainController {
 
     @FXML
     private void openTrackDesigner(ActionEvent event) {
-        System.out.println("Track Designer clicked");
-        // Here, later, you can load TrackDesigner.fxml
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/HorseRaceSimulation/TrackDesignerController.fxml"));
+            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root, 800, 600));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
