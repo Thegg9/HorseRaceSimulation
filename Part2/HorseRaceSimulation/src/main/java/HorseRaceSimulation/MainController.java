@@ -44,11 +44,23 @@ public class MainController {
 
     @FXML
     private void viewStatistics(ActionEvent event) {
-        System.out.println("View Statistics clicked");
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/HorseRaceSimulation/Statistics.fxml"));
+            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root, 800, 600));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     private void openBettingSystem(ActionEvent event) {
-        System.out.println("Open Betting System clicked");
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/HorseRaceSimulation/Betting.fxml"));
+            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root, 800, 600));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

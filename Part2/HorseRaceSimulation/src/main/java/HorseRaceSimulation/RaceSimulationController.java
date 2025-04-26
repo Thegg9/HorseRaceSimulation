@@ -23,6 +23,8 @@ public class RaceSimulationController {
     private List<HorseProfile> horses;
     private Map<HorseProfile, Double> horsePositions = new HashMap<>();
     private double finishLine;
+    private static HorseProfile winningHorse = null;
+
 
     @FXML
     private Canvas raceCanvas;
@@ -142,7 +144,7 @@ public class RaceSimulationController {
         }
     }
 
-    private double getSpeedMultiplier(HorseProfile horse) {
+    public static double getSpeedMultiplier(HorseProfile horse) {
         double base = 1.0;
         if (horse.getBreed().equals("Thoroughbred")) {
             base = 1.2;
@@ -179,21 +181,51 @@ public class RaceSimulationController {
         }
     }
     private void announceWinner(String winnerName) {
-        System.out.println("🏆 Winner: " + winnerName);
+        try {
+            for (HorseProfile horse : horses) {
+                // Always increment race count
+                GameData.updateHorseRace(horse);
 
-        Stage popupStage = new Stage();
-        VBox vbox = new VBox(20);
-        vbox.setStyle("-fx-alignment: center; -fx-padding: 20;");
-        Label label = new Label("🏆 Winner: " + winnerName + " 🏆");
-        label.setStyle("-fx-font-size: 24px;");
-        Button closeBtn = new Button("OK");
-        closeBtn.setOnAction(e -> popupStage.close());
-        vbox.getChildren().addAll(label, closeBtn);
+                if (horse.getName().equals(winnerName)) {
+                    // Winner
+                    GameData.updateHorseWin(horse);
+                } else if (fallenStatus.get(horse)) {
+                    // Fallen
+                    GameData.updateHorseFall(horse);
+                }
+            }
 
-        Scene scene = new Scene(vbox, 300, 200);
-        popupStage.setTitle("Race Result");
-        popupStage.setScene(scene);
-        popupStage.show();
+            Parent root = FXMLLoader.load(getClass().getResource("/HorseRaceSimulation/RaceResult.fxml"));
+            Stage stage = (Stage) raceCanvas.getScene().getWindow();
+            stage.setScene(new Scene(root, 800, 600));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public static List<HorseProfile> getHorses() {
+        return RaceSimulationControllerHolder.instance.horses;
+    }
+
+    public static Map<HorseProfile, Double> getHorsePositions() {
+        return RaceSimulationControllerHolder.instance.horsePositions;
+    }
+
+    public static Map<HorseProfile, Boolean> getFallenStatus() {
+        return RaceSimulationControllerHolder.instance.fallenStatus;
+    }
+
+    // Helper to access instance
+    private static class RaceSimulationControllerHolder {
+        private static RaceSimulationController instance;
+    }
+
+    public RaceSimulationController() {
+        RaceSimulationControllerHolder.instance = this;
+    }
+    public static HorseProfile getWinningHorse() {
+        return winningHorse;
     }
 
 }

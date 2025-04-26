@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" spacing="15" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml" fx:controller="HorseRaceSimulation.StatisticsController">
+
+    <Label text="Horse Statistics" style="-fx-font-size: 24px;"/>
+
+    <VBox fx:id="statsBox" spacing="10" />
+
+    <Button text="Back to Main Menu" onAction="#goBack"/>
+
+</VBox>

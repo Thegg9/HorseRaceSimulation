@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" spacing="15" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml" fx:controller="HorseRaceSimulation.BettingResultController">
+
+    <Label text="Betting Result" style="-fx-font-size: 24px;"/>
+
+    <Label fx:id="resultLabel" style="-fx-font-size: 18px;"/>
+    <Label fx:id="balanceLabel" style="-fx-font-size: 18px;"/>
+
+    <Button text="Back to Main Menu" onAction="#goBack"/>
+
+</VBox>
