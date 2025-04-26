@@ -22,7 +22,13 @@ public class MainController {
 
     @FXML
     private void openHorseCustomizer(ActionEvent event) {
-        System.out.println("Horse Customizer clicked");
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/HorseRaceSimulation/HorseCustomizer.fxml"));
+            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root, 800, 600));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
