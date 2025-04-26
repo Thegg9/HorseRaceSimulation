@@ -46,13 +46,9 @@ public class TrackDesignerController {
         String shape = shapeComboBox.getValue();
         String weather = weatherComboBox.getValue();
 
-        System.out.println("Saved Track:");
-        System.out.println("Lanes: " + lanes);
-        System.out.println("Length: " + length);
-        System.out.println("Shape: " + shape);
-        System.out.println("Weather: " + weather);
-
-        // Later you can store these values in a TrackSettings class
+        TrackSettings settings = new TrackSettings(lanes, length, shape, weather);
+        GameData.setTrackSettings(settings);
+        System.out.println("Saved: " + settings);
     }
 
     @FXML

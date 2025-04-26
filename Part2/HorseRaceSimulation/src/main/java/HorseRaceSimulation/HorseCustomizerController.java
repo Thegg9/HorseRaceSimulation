@@ -50,17 +50,11 @@ public class HorseCustomizerController {
         boolean hasHorseshoes = horseshoeCheckBox.isSelected();
         boolean hasAccessories = accessoryCheckBox.isSelected();
 
-        System.out.println("Horse Customization Saved:");
-        System.out.println("Name: " + name);
-        System.out.println("Breed: " + breed);
-        System.out.println("Color: " + color);
-        System.out.println("Symbol: " + symbol);
-        System.out.println("Equipment:");
-        if (hasSaddle) System.out.println("- Saddle");
-        if (hasHorseshoes) System.out.println("- Horseshoes");
-        if (hasAccessories) System.out.println("- Accessories");
+        HorseProfile profile = new HorseProfile(name, breed, color, symbol,
+                hasSaddle, hasHorseshoes, hasAccessories);
+        GameData.setHorseProfile(profile);
 
-        // Later you can store these values inside a HorseProfile object
+        System.out.println("Saved: " + profile);
     }
 
     @FXML
