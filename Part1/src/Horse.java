@@ -1,76 +1,78 @@
 
 /**
- * Write a description of class Horse here.
+ * The Horse class represents a single race participant in the textual horse race simulation.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Thegg
+ * @version 1.0.0 April 13, 2025
  */
 public class Horse
 {
-    //Fields of class Horse
-
+    //Fields of class Horse for encapsulation
+    private String name;
+    private char symbol;
+    private int distanceTravelled;
+    private boolean hasFallen;
+    private double confidence;
 
 
     //Constructor of class Horse
     /**
-     * Constructor for objects of class Horse
+     * Constructor for objects of class Horse.
+     *
+     * @param horseSymbol the character symbol representing the horse on track
+     * @param horseName the name of the horse
+     * @param horseConfidence the confidence rating (0 to 1)
      */
     public Horse(char horseSymbol, String horseName, double horseConfidence)
     {
-
+        this.symbol = horseSymbol;
+        this.name = horseName;
+        this.confidence = Math.max(0.0, Math.min(1.0, horseConfidence)); // Clamp to [0,1]
+        this.distanceTravelled = 0;  // initialiazing with zero.
+        this.hasFallen = false;
     }
 
-
-
-    //Other methods of class Horse
-    public void fall()
-    {
-
+    public void fall() {
+        this.hasFallen = true;
+        this.confidence = Math.max(0.0, this.confidence - 0.05);
     }
 
-    public double getConfidence()
-    {
-
+    public double getConfidence() {
+        return this.confidence;
     }
 
-    public int getDistanceTravelled()
-    {
-
+    public int getDistanceTravelled() {
+        return this.distanceTravelled;
     }
 
-    public String getName()
-    {
-
+    public String getName() {
+        return this.name;
     }
 
-    public char getSymbol()
-    {
-
+    public char getSymbol() {
+        return this.symbol;
     }
 
-    public void goBackToStart()
-    {
-
+    public void goBackToStart() {
+        this.distanceTravelled = 0;
+        this.hasFallen = false;
     }
 
-    public boolean hasFallen()
-    {
-
+    public boolean hasFallen() {
+        return this.hasFallen;
     }
 
-    public void moveForward()
-    {
-
+    public void moveForward() {
+        this.distanceTravelled++;
     }
 
-    public void setConfidence(double newConfidence)
-    {
-
+    public void setConfidence(double newConfidence) {
+        this.confidence = Math.max(0.0, Math.min(1.0, newConfidence));
     }
 
-    public void setSymbol(char newSymbol)
-    {
-
+    public void setSymbol(char newSymbol) {
+        this.symbol = newSymbol;
     }
-
 }
+
+
