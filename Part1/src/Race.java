@@ -66,25 +66,52 @@ public class Race
     {
         //declare a local variable to tell us when the race is finished
         boolean finished = false;
+        Horse winner = null;
 
         //reset all the lanes (all horses not fallen and back to 0).
-        lane1Horse.goBackToStart();
-        lane2Horse.goBackToStart();
-        lane3Horse.goBackToStart();
+        if (lane1Horse != null)
+        {
+            lane1Horse.goBackToStart();
+        }
+        if (lane2Horse != null)
+        {
+            lane2Horse.goBackToStart();
+        }
+        if (lane3Horse != null)
+        {
+            lane3Horse.goBackToStart();
+        }
 
         while (!finished)
         {
             //move each horse
-            moveHorse(lane1Horse);
-            moveHorse(lane2Horse);
-            moveHorse(lane3Horse);
+            if (lane1Horse != null)
+            {
+                moveHorse(lane1Horse);
+            }
+            if (lane2Horse != null)
+            {
+                moveHorse(lane2Horse);
+            }
+            if (lane3Horse != null)
+            {
+                moveHorse(lane3Horse);
+            }
 
             //print the race positions
             printRace();
 
-            //if any of the three horses has won the race is finished
-            if ( raceWonBy(lane1Horse) || raceWonBy(lane2Horse) || raceWonBy(lane3Horse) )
-            {
+            //if any of the three horses has won the race is finished and winner is saved in variable
+            if (lane1Horse != null && raceWonBy(lane1Horse)) {
+                winner = lane1Horse;
+                finished = true;
+            }
+            else if (lane2Horse != null && raceWonBy(lane2Horse)) {
+                winner = lane2Horse;
+                finished = true;
+            }
+            else if (lane3Horse != null && raceWonBy(lane3Horse)) {
+                winner = lane3Horse;
                 finished = true;
             }
 
@@ -92,6 +119,9 @@ public class Race
             try{
                 TimeUnit.MILLISECONDS.sleep(100);
             }catch(Exception e){}
+        }
+        if (winner != null) {
+            System.out.println("\nAnd the winner is… " + winner.getName() + "!");
         }
     }
 
@@ -152,15 +182,21 @@ public class Race
         multiplePrint('=',raceLength+3); //top edge of track
         System.out.println();
 
-        printLane(lane1Horse);
-        System.out.println();
-
-        printLane(lane2Horse);
-        System.out.println();
-
-        printLane(lane3Horse);
-        System.out.println();
-
+        if (lane1Horse != null)
+        {
+            printLane(lane1Horse);
+            System.out.println();
+        }
+        if (lane2Horse != null)
+        {
+            printLane(lane2Horse);
+            System.out.println();
+        }
+        if (lane3Horse != null)
+        {
+            printLane(lane3Horse);
+            System.out.println();
+        }
         multiplePrint('=',raceLength+3); //bottom edge of track
         System.out.println();
     }
@@ -200,6 +236,11 @@ public class Race
 
         //print the | for the end of the track
         System.out.print('|');
+
+        // print horse name and confidence info
+        System.out.print(" " + theHorse.getName() +
+                " (Current confidence " +
+                String.format("%.2f", theHorse.getConfidence()) + ")");
     }
 
 
