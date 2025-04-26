@@ -33,7 +33,13 @@ public class MainController {
 
     @FXML
     private void startRace(ActionEvent event) {
-        System.out.println("Start Race clicked");
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/HorseRaceSimulation/RaceSimulation.fxml"));
+            Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root, 800, 600));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

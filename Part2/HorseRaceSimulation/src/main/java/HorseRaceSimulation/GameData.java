@@ -1,8 +1,11 @@
 package HorseRaceSimulation;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class GameData {
     private static TrackSettings trackSettings;
-    private static HorseProfile horseProfile;
+    private static List<HorseProfile> horseProfiles = new ArrayList<>();
 
     public static TrackSettings getTrackSettings() {
         return trackSettings;
@@ -12,11 +15,15 @@ public class GameData {
         trackSettings = settings;
     }
 
-    public static HorseProfile getHorseProfile() {
-        return horseProfile;
+    public static List<HorseProfile> getHorseProfiles() {
+        return horseProfiles;
     }
 
-    public static void setHorseProfile(HorseProfile profile) {
-        horseProfile = profile;
+    public static void addHorseProfile(HorseProfile profile) {
+        horseProfiles.add(profile);
+    }
+
+    public static void clearHorseProfiles() {
+        horseProfiles.clear();
     }
 }

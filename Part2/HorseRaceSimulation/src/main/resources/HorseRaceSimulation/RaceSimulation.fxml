@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" spacing="15" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml" fx:controller="HorseRaceSimulation.RaceSimulationController">
+
+    <Label text="Race Simulation" style="-fx-font-size: 24px;"/>
+
+    <Label fx:id="trackInfoLabel" style="-fx-font-size: 14px;"/>
+    <Label fx:id="horseInfoLabel" style="-fx-font-size: 14px;"/>
+
+    <Canvas fx:id="raceCanvas" width="700" height="100"/>
+
+    <Button text="Start Race" onAction="#startRace"/>
+    <Button text="Back to Menu" onAction="#goBack"/>
+
+</VBox>

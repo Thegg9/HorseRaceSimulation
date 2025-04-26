@@ -52,7 +52,7 @@ public class HorseCustomizerController {
 
         HorseProfile profile = new HorseProfile(name, breed, color, symbol,
                 hasSaddle, hasHorseshoes, hasAccessories);
-        GameData.setHorseProfile(profile);
+        GameData.addHorseProfile(profile);
 
         System.out.println("Saved: " + profile);
     }
