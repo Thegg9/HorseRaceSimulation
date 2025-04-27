@@ -1,7 +1,7 @@
 
 /**
  * The Horse class represents a single race participant in the textual horse race simulation.
- *
+ *@author thegg9
  *
  * @version 1.0.0 April 13, 2025
  */
