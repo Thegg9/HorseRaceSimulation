@@ -11,7 +11,7 @@ Both parts allow users to design tracks, customize horses, simulate races, place
 
 ## Project Structure
 
-HorseRaceSimulator/ ├── .git/ ├── Part1/ # HorseRaceSimulation ├── Part2/ # HorseRaceSimulation
+-HorseRaceSimulator/ ├── .git/ ├── Part1/ # HorseRaceSimulation ├── Part2/ # HorseRaceSimulation
 ---
 
 ## Prerequisites
@@ -21,7 +21,14 @@ HorseRaceSimulator/ ├── .git/ ├── Part1/ # HorseRaceSimulation ├�
 - JavaFX SDK installed (for Part 2)
 - (Optional) IntelliJ IDEA or any Java-compatible IDE
 
----
+## How to build
+
+- Checkout the complete repo
+For Textual simulator, open part 1 in IntelliJ Idea and build
+
+For GUI simulator, open part 2 in IntelliJ Idea and build
+
+After running both application, it will be understood automatically how to use because it is used as per Human Machine Interface principles which make it easier to learm while using it.
 
 
 
