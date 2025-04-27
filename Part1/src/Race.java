@@ -209,39 +209,28 @@ public class Race
      */
     private void printLane(Horse theHorse)
     {
-        //calculate how many spaces are needed before
-        //and after the horse
         int spacesBefore = theHorse.getDistanceTravelled();
         int spacesAfter = raceLength - theHorse.getDistanceTravelled();
 
-        //print a | for the beginning of the lane
         System.out.print('|');
+        multiplePrint(' ', spacesBefore);
 
-        //print the spaces before the horse
-        multiplePrint(' ',spacesBefore);
-
-        //if the horse has fallen then print dead
-        //else print the horse's symbol
-        if(theHorse.hasFallen())
+        if (theHorse.hasFallen())
         {
-            System.out.print('\u2322');
+            System.out.print('❌');  // <-- changed to ❌ symbol
         }
         else
         {
             System.out.print(theHorse.getSymbol());
         }
 
-        //print the spaces after the horse
-        multiplePrint(' ',spacesAfter);
-
-        //print the | for the end of the track
+        multiplePrint(' ', spacesAfter);
         System.out.print('|');
 
-        // print horse name and confidence info
-        System.out.print(" " + theHorse.getName() +
-                " (Current confidence " +
-                String.format("%.2f", theHorse.getConfidence()) + ")");
+        // Optional: print horse name and confidence beside track
+        System.out.print(" " + theHorse.getName() + " (Confidence: " + String.format("%.2f", theHorse.getConfidence()) + ")");
     }
+
 
 
     /***
