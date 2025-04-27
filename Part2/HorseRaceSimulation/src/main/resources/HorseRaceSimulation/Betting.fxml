@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" spacing="15" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml" fx:controller="HorseRaceSimulation.BettingController">
+
+    <Label text="Place Your Bet" style="-fx-font-size: 24px;"/>
+
+    <Label text="Select Horse:"/>
+    <ComboBox fx:id="horseComboBox" prefWidth="200"/>
+
+    <Label text="Enter Bet Amount:"/>
+    <TextField fx:id="betAmountField" prefWidth="200"/>
+
+    <Label fx:id="oddsLabel" text="Odds will be shown here."/>
+
+    <Button text="Confirm Bet" onAction="#confirmBet"/>
+    <Button text="Back to Menu" onAction="#goBack"/>
+
+</VBox>

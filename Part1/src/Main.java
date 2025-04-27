@@ -1,5 +1,4 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.Scanner;
 
 /**
  * The Main class runs the application
@@ -9,30 +8,37 @@
  */
 public class Main {
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
+        System.out.println("Welcome to the Horse Race Simulator (Console Version)!");
+        System.out.println("You will now enter details for 3 horses.\n");
 
-/*
+        Horse[] horses = new Horse[3];
 
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
- */
-        // to see how IntelliJ IDEA suggests fixing it.
-        Horse h = new Horse('♞', "Shadowfax", 0.75);
-        System.out.println(h.getName());             // Output: Shadowfax
-        System.out.println(h.getSymbol());           // Output: ♞
-        System.out.println(h.getConfidence());       // Output: 0.75
-        System.out.println(h.getDistanceTravelled()); // Output: 0
-        System.out.println(h.hasFallen());           // Output: false
+        for (int i = 0; i < 3; i++) {
+            System.out.println("Enter details for Horse #" + (i + 1) + ":");
 
-        h.moveForward();
-        h.moveForward();
-        System.out.println(h.getDistanceTravelled()); // Output: 2
+            System.out.print("Enter horse name: ");
+            String name = scanner.nextLine();
 
+            System.out.print("Enter a single character or emoji for the horse symbol: ");
+            char symbol = scanner.nextLine().charAt(0);
+
+            System.out.print("Enter horse confidence (between 0.0 and 1.0): ");
+            double confidence = Double.parseDouble(scanner.nextLine());
+
+            horses[i] = new Horse(symbol, name, confidence);
+
+            System.out.println();
+        }
 
         Race race = new Race(20); // Adjust race length to fit names
-        race.addHorse(new Horse('♘', "PIPPI LONGSTOCKING", 0.6), 1);
-        race.addHorse(new Horse('♞', "KOKOMO", 0.6), 2);
-        race.addHorse(new Horse('2', "EL JEFE", 0.4), 3);  // Use 2 or any symbol
 
+        race.addHorse(horses[0], 1);
+        race.addHorse(horses[1], 2);
+        race.addHorse(horses[2], 3);
+
+        System.out.println("\nStarting the race!\n");
         race.startRace();
     }
 }

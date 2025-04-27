@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+
+<VBox alignment="CENTER" spacing="20" xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml" fx:controller="HorseRaceSimulation.MainController">
+
+    <Label text="Welcome to Horse Racing Simulator!" style="-fx-font-size: 24px;"/>
+
+    <Button text="Track Designer" onAction="#openTrackDesigner"/>
+    <Button text="Horse Customizer" onAction="#openHorseCustomizer"/>
+    <Button text="Start Race" onAction="#startRace"/>
+    <Button text="View Statistics" onAction="#viewStatistics"/>
+    <Button text="Open Betting System" onAction="#openBettingSystem"/>
+
+</VBox>
