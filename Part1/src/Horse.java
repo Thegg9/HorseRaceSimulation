@@ -2,7 +2,7 @@
 /**
  * The Horse class represents a single race participant in the textual horse race simulation.
  *
- * @author Thegg
+ *
  * @version 1.0.0 April 13, 2025
  */
 public class Horse
