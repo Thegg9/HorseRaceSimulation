@@ -23,12 +23,12 @@ Both parts allow users to design tracks, customize horses, simulate races, place
 
 ## How to build
 
-- Checkout the complete repo
-For Textual simulator, open part 1 in IntelliJ Idea and build
+- Check out the complete repo
+For Textual simulator, open part 1 in IntelliJ IDEA and build
 
-For GUI simulator, open part 2 in IntelliJ Idea and build
+For the GUI simulator, open part 2 in IntelliJ IDEA and build
 
-After running both application, it will be understood automatically how to use because it is used as per Human Machine Interface principles which make it easier to learm while using it.
+After running both applications, it will be automatically understood how to use it because it is used per Human Machine Interface principles, making it easier to learn.
 
 
 
